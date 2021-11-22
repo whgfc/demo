@@ -1,0 +1,43 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: demo
+  #profiles:
+    #active: '@spring.active@'
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+  datasource:
+    # Mysql\u6570\u636E\u5E93
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: 305742
+mybatis-plus:
+  mapper-locations: classpath*:/com/example/**/mapper/*.xml
+  #mybatis\u6E90\u751F\u914D\u7F6E
+  configuration:
+    #\u9A7C\u5CF0\u547D\u540D\u89C4\u5219\u662F\u5426\u5F00\u542F
+    map-underscore-to-camel-case: true
+    #\u4F7F\u5168\u5C40\u7684\u6620\u5C04\u5668\u542F\u7528\u6216\u7981\u7528\u7F13\u5B58
+    cache-enabled: true
+    #\u5168\u5C40\u542F\u7528\u6216\u7981\u7528\u5EF6\u8FDF\u52A0\u8F7D
+    lazy-loading-enabled: true
+    #\u662F\u5426\u5141\u8BB8\u5355\u6761sql \u8FD4\u56DE\u591A\u4E2A\u6570\u636E\u96C6 (\u53D6\u51B3\u4E8E\u9A71\u52A8\u7684\u517C\u5BB9\u6027)
+    multiple-result-sets-enabled: true
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+  #MyBatis-Plus \u5168\u5C40\u7B56\u7565\u914D\u7F6E
+  global-config:
+    #\u662F\u5426\u63A7\u5236\u53F0 print mybatis-plus \u7684 LOGO
+    banner: false
+    #MyBatis-Plus \u5168\u5C40\u7B56\u7565\u4E2D\u7684 DB \u7B56\u7565\u914D\u7F6E
+    db-config:
+      #\u5168\u5C40\u9ED8\u8BA4\u4E3B\u952E\u7C7B\u578B
+      id-type: assign_id
+      #\u8868\u540D\u662F\u5426\u4F7F\u7528\u9A7C\u5CF0\u8F6C\u4E0B\u5212\u7EBF\u547D\u540D,\u53EA\u5BF9\u8868\u540D\u751F\u6548
+      table-underline: true
+    #\u662F\u5426\u521D\u59CB\u5316 SqlRunner
+    enable-sql-runner: true
+
